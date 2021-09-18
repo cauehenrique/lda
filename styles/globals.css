@@ -1,0 +1,7 @@
+._icon-outline {
+  @apply w-6 h-6;
+}
+
+._icon-filled {
+  @apply w-5 h-5;
+}
