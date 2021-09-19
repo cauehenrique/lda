@@ -9,6 +9,7 @@ flex items-center justify-between
 bg-white dark:bg-gray-800
 border-gray-300 dark:border-gray-700
 border-b-2
+z-10
 `;
 
 export const BrandContainer = tw.div`

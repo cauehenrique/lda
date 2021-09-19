@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const Container = tw.div`
 w-full min-h-screen
-bg-gray-100 dark:bg-gray-900
+bg-gray-50 dark:bg-gray-800
 `;
 
 const MainContent = tw.div`

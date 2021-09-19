@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Layout from "~/components/Layout";
 
+import About from "~/components/About";
+
 import { FC } from "react";
 
 const AboutPage: FC = () => {
@@ -13,7 +15,7 @@ const AboutPage: FC = () => {
           content="Somos um grupo de estudantes apaixonados por liberdade!"
         />
       </Head>
-      Página Sobre
+      <About />
     </Layout>
   );
 };
