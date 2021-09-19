@@ -24,8 +24,8 @@ text-lg
 
 export const Button = tw.button`
   p-2
-  bg-white hover:bg-gray-200 active:bg-white
-  dark:bg-gray-800 dark:hover:bg-gray-700 dark:active:bg-gray-800
+  bg-white hover:bg-gray-200
+  dark:bg-gray-800 dark:hover:bg-gray-700
   text-black dark:text-white
   rounded-sm
 `;

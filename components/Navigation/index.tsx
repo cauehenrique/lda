@@ -15,9 +15,21 @@ import {
   NavigationButtons,
   AboutButton,
 } from "./styles";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 const Navigation: FC = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const wasDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(wasDarkMode);
+  }, []);
+
+  useEffect(() => {
+    document.querySelector("html").classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode.toString());
+  }, [darkMode]);
+
   return (
     <Container>
       <BrandContainer>
@@ -26,10 +38,14 @@ const Navigation: FC = () => {
       <NavigationButtons>
         <Button
           onClick={() => {
-            document.querySelector("html").classList.toggle("dark");
+            setDarkMode(!darkMode);
           }}
         >
-          <MoonIcon className="w-6 h-6" />
+          {darkMode ? (
+            <SunIcon className="w-6 h-6" />
+          ) : (
+            <MoonIcon className="w-6 h-6" />
+          )}
         </Button>
         <Link href="/">
           <Button>
