@@ -27,8 +27,8 @@ const Proposal: FC<Proposal> = ({ id, title, content, score }) => {
   }
 
   return (
-    <div className="w-full overflow-hidden border border-gray-300 bg-white flex rounded-sm">
-      <div className="bg-gray-100 w-14 border-r border-gray-300 flex flex-col flex-shrink-0 space-y-4 p-3">
+    <div className="w-full overflow-hidden border-2 border-gray-300 bg-white flex rounded-sm">
+      <div className="bg-gray-100 w-14 border-r-2 border-gray-300 flex flex-col flex-shrink-0 space-y-4 p-3">
         <div className="flex flex-col justify-center items-center space-y-1">
           <button
             className="disabled:opacity-80"
@@ -59,7 +59,7 @@ const Proposal: FC<Proposal> = ({ id, title, content, score }) => {
           {currentScore}
         </span>
       </div>
-      <div className="p-4">
+      <div className="p-4 w-full">
         <span className="block font-bold">{title}</span>
         {content}
       </div>

@@ -28,7 +28,7 @@ const MainPage: FC<IMainPage> = ({ contentList }) => {
   return (
     <Layout>
       <Head>
-        <title>💡 - Grêmio Luz do Avanço</title>
+        <title>Página Inicial - Luz do Avanço</title>
         <meta
           name="description"
           content="Somos um grupo de estudantes apaixonados por liberdade!"

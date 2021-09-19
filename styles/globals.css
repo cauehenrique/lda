@@ -5,3 +5,11 @@
 ._icon-filled {
   @apply w-5 h-5;
 }
+
+._button {
+  @apply rounded-sm p-2;
+}
+
+._button-secondary {
+  @apply transition-colors bg-white hover:bg-gray-200 active:bg-gray-300 text-black;
+}
