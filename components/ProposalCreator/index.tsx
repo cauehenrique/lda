@@ -6,8 +6,10 @@ import {
   SubmitButton,
   ModalContainer,
   ModalContent,
+  Input,
   RMInput,
   ModalButton,
+  FloatingLabel,
 } from "./styles";
 
 import { CheckCircleIcon, XIcon } from "@heroicons/react/solid";
@@ -21,18 +23,37 @@ interface Post {
 
 const ProposalCreator: FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [post, setPost] = useState<Post>();
+  const [post, setPost] = useState<Post>({
+    autor: "",
+    titulo: "",
+    conteudo: "",
+  });
 
   async function submitProposal() {
-    const apiURL = `/propostas/publicar?titulo=${post.titulo}&conteudo=${post.conteudo}&autor=${post.autor}`;
+    const { titulo, conteudo, autor } = post;
+
+    const urlParams = new URLSearchParams({ titulo, conteudo, autor });
+    const apiURL = `/propostas/publicar?${urlParams}`;
+
+    console.log(apiURL);
+
     // await api.get()
     setModalOpen(false);
   }
 
   return (
     <Container>
-      <Area placeholder="Qual a sua ideia?" maxLength={120}></Area>
-      <SubmitButton onClick={() => setModalOpen(true)}>
+      <Area
+        placeholder="Qual a sua ideia?"
+        maxLength={120}
+        onChange={(e) =>
+          setPost((prev) => ({ ...prev, conteudo: e.target.value }))
+        }
+      ></Area>
+      <SubmitButton
+        onClick={() => setModalOpen(true)}
+        disabled={post.conteudo.length <= 0}
+      >
         <CheckCircleIcon className="block w-5 h-5" />
       </SubmitButton>
 
@@ -48,15 +69,26 @@ const ProposalCreator: FC = () => {
             identificá-lo em nossa base de dados.
           </h2>
           <div className="mt-6 flex flex-col">
-            <span className="w-min block font-semibold bg-white dark:bg-gray-800 px-0.5 ml-2 -mb-3 z-10">
-              RM
-            </span>
-            <RMInput
-              type="text"
-              placeholder="00000"
-              maxLength={5}
-              onChange={(e) => setPost({ ...post, autor: e.target.value })}
-            />
+            <div className="relative group">
+              <FloatingLabel $inputText={post.titulo}>Título</FloatingLabel>
+              <Input
+                type="text"
+                className="mb-3"
+                onChange={(e) =>
+                  setPost((prev) => ({ ...prev, titulo: e.target.value }))
+                }
+              />
+            </div>
+
+            <div className="relative group">
+              <FloatingLabel $inputText={post.autor}>RM</FloatingLabel>
+              <RMInput
+                type="text"
+                maxLength={5}
+                onChange={(e) => setPost({ ...post, autor: e.target.value })}
+              />
+            </div>
+
             <ModalButton onClick={() => submitProposal()}>
               <CheckCircleIcon className="w-5 h-5" />
             </ModalButton>

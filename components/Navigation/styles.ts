@@ -28,13 +28,13 @@ export const Button = tw.button`
   bg-white hover:bg-gray-200
   dark:bg-gray-800 dark:hover:bg-gray-700
   text-black dark:text-white
-  rounded-sm
+  rounded-md
 `;
 
 export const AboutButton = tw.a`
 p-2
 bg-indigo-600 hover:bg-indigo-400 active:bg-indigo-600
 text-white
-rounded-sm
+rounded-md
 cursor-pointer
 `;

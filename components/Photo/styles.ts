@@ -6,7 +6,7 @@ h-40
 m-3
 flex
 flex-col
-rounded-sm
+rounded-md
 border-2
 overflow-hidden
 border-gray-300 dark:border-gray-600

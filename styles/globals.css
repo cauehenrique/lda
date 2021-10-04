@@ -7,7 +7,7 @@
 }
 
 ._button {
-  @apply rounded-sm p-2;
+  @apply rounded-md p-2;
 }
 
 ._button-secondary {

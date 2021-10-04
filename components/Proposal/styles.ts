@@ -5,7 +5,7 @@ flex
 w-full
 overflow-hidden
 border-2
-rounded-sm
+rounded-md
 border-gray-300 dark:border-gray-600
 bg-white dark:bg-gray-800
 text-black dark:text-white
@@ -35,7 +35,7 @@ export const Score = tw.span<Score>`
 w-full
 font-semibold
 text-center
-rounded-sm
+rounded-md
 ${(p) => (p.$isGood ? "bg-indigo-500" : "bg-red-500")}
 text-white
 `;
